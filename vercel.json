@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "../server/app.js",  
+        "use": "@vercel/node"  
+      },
+      {
+        "src": "../client/package.json",  
+        "use": "@vercel/static-build"  
+    }
+    ],
+    "routes": [
+      { "handle": "filesystem" },  
+      {
+        "src": "/api/token",
+        "dest": "../server/app.js"   
+    },
+      {
+        "src": "/api/justify",
+        "dest": "../server/app.js"  
+    },
+      {
+        "src": "/api/getemail/:token",
+        "dest": "../server/app.js"    
+    }
+    ]
+  }
+  
